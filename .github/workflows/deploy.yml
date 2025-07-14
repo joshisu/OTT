@@ -14,3 +14,4 @@ jobs:
       environment: ${{ github.ref_name }}
     secrets:
       AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+      
