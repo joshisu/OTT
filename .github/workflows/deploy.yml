@@ -7,7 +7,6 @@ on:
 jobs:
   build-deploy:
     uses: joshisu/reusable_workflow/.github/workflows/dot-net.yml@main
-    secrets: inherit
     with:
       project_path: SampleWebApp.csproj
       build_config: Release
