@@ -1,0 +1,15 @@
+name: CI/CD for MyApp
+
+on:
+  push:
+    branches: [ main, dev, test, stage ]
+
+jobs:
+  build-deploy:
+    uses: org/build-pipelines/.github/workflows/build-dotnet.yml@main
+    with:
+      project_path: ./src/MyApp/MyApp.csproj
+      build_config: Release
+      app_name: ${{ github.ref == 'refs/heads/main' && 'myapp-prod' || github.ref == 'refs/heads/stage' && 'myapp-stage' || github.ref == 'refs/heads/test' && 'myapp-test' || 'myapp-dev' }}
+      environment: ${{ github.ref_name }}
+    secrets: inherit
