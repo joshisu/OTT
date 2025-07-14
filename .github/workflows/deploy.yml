@@ -6,10 +6,10 @@ on:
 
 jobs:
   build-deploy:
-    uses: org/build-pipelines/.github/workflows/build-dotnet.yml@main
-    with:
-      project_path: ./src/MyApp/MyApp.csproj
-      build_config: Release
-      app_name: ${{ github.ref == 'refs/heads/main' && 'myapp-prod' || github.ref == 'refs/heads/stage' && 'myapp-stage' || github.ref == 'refs/heads/test' && 'myapp-test' || 'myapp-dev' }}
-      environment: ${{ github.ref_name }}
+    uses: joshisu/reusable_workflow/.github/workflows/dot-net.yml@main
     secrets: inherit
+    with:
+      project_path: SampleWebApp.csproj
+      build_config: Release
+      app_name: ${{ github.ref == 'refs/heads/main' && 'demowebapp' || github.ref == 'refs/heads/stage' && 'demo-web28' || github.ref == 'refs/heads/test' && 'your-webapp-dev' || 'your-webapp-dev' }}
+      environment: ${{ github.ref_name }}
