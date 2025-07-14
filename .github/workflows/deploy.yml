@@ -13,3 +13,4 @@ jobs:
       build_config: Release
       app_name: ${{ github.ref == 'refs/heads/main' && 'demowebapp' || github.ref == 'refs/heads/stage' && 'demo-web28' || github.ref == 'refs/heads/test' && 'your-webapp-dev' || 'your-webapp-dev' }}
       environment: ${{ github.ref_name }}
+      
